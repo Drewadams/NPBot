@@ -12,7 +12,7 @@ class rust extends commando.Command {
 
 
   async run(message, args) {
-    var role = message.guild.roles.find(role => role.name === "Rust");
+    var role = message.guild.roles.find(role => role.name === "Rustopian");
     message.member.addRole(role);
   }
 };
