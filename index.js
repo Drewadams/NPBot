@@ -26,6 +26,8 @@ client.on('guildMemberAdd', member => {
   // Send the message to DM:
   member.user.send(`Welcome to the NP Public server, ${member}!`);
   member.user.send('Type  *np.r6s*  or  *np.rust*  in the #roles channel to get a role.');
+  let defaultRole = member.guild.roles.find(role => role.name === "Member");
+  member.addRole(defaultRole)
 });
 
 // Check to see if person started streaming based on game status update
