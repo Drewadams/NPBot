@@ -28,13 +28,15 @@ client.on('guildMemberAdd', member => {
   member.user.send('Type  *np.r6s*  or  *np.rust*  in the #roles channel to get a role.');
 });
 
-// Check to see if someone started streaming
+// Check to see if person started streaming based on game status update
 client.on('presenceUpdate', (oldMember, newMember) => {
+  // Checks for any game activity
   if (newMember.presence.game != null) {
-
+    // If that person is streaming
     if (newMember.presence.game.streaming) {
-      client.channels.get('self-advertising').send(`${newMember.displayName} is streaming! Come check it out at ${newMember.game.url} !`)
-      console.log('someone is streaming');
+      console.log(`${newMember.displayName} is streaming!`);
+      newMember.guild.channels.find(channel => channel.name === "self-advertising").send(`${newMember.displayName} is streaming! Come check it out at ${newMember.presence.game.url} !`)
+
     };
   };
 });
