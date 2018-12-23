@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando');
 const path = require('path');
-const config = require('./config.json');
+const aws = require('aws-sdk');
 
 const client = new commando.Client({
     owner: config.owner,
