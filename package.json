@@ -1,5 +1,5 @@
 {
-  "name": "NP Bot",
+  "name": "NPBot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,5 +9,7 @@
     "discord.js-commando": "^0.10.0",
     "path": "^0.12.7"
   },
-  "start" : "node ."
+  "scripts": {
+      "start": "node index.js"
+  }
 }
