@@ -1,9 +1,9 @@
 const commando = require('discord.js-commando');
 const path = require('path');
-const config = require("./config.json");
+const aws = require('aws-sdk');
 
 const client = new commando.Client({
-    owner: config.owner,
+    owner: process.env.owner,
     commandPrefix: 'np.',
     unknownCommandResponse: false
 });
@@ -70,4 +70,4 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 });
 
 // Bot login
-client.login(config.token);
+client.login(process.env.token);
