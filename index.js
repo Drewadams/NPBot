@@ -44,7 +44,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
       // Announces in self-advertising
       console.log(`${newMember.displayName} is streaming!`);
-      newMember.guild.channels.find(channel => channel.name === "self-advertisement").send(`${newMember.displayName} is streaming ${newMember.presence.game.name}! Come check it out: ${newMember.presence.game.url}`)
+      newMember.guild.channels.find(channel => channel.name === "self_advertisement").send(`${newMember.displayName} is streaming ${newMember.presence.game.name}! Come check it out: ${newMember.presence.game.url}`)
 
       // If part of stream team.
       if (newMember.highestRole === streamerRole) {
