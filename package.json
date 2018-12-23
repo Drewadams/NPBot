@@ -1,0 +1,11 @@
+{
+  "name": "NP Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "path": "^0.12.7"
+  }
+}
