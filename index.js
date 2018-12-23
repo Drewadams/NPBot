@@ -1,9 +1,9 @@
 const commando = require('discord.js-commando');
 const path = require('path');
-const aws = require('aws-sdk');
+const config = require('./config.json');
 
 const client = new commando.Client({
-    owner: process.env.owner,
+    owner: config.owner,
     commandPrefix: 'np.',
     unknownCommandResponse: false
 });
@@ -26,6 +26,8 @@ client.on('guildMemberAdd', member => {
   // Send the message to DM:
   member.user.send(`Welcome to the NP Public server, ${member}!`);
   member.user.send('Type  *np.r6s*  or  *np.rust*  in the #roles channel to get a role.');
+  let defaultRole = member.guild.roles.find(role => role.name === "Member");
+  member.addRole(defaultRole)
 });
 
 // Check to see if person started streaming based on game status update
@@ -70,4 +72,4 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 });
 
 // Bot login
-client.login(process.env.token);
+client.login(config.token);
