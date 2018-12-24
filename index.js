@@ -2,12 +2,6 @@ const commando = require('discord.js-commando');
 const path = require('path');
 const aws = require('aws-sdk');
 
-// emojis
-const np1 = client.emojis.find(emoji => emoji.name === "NP~1");
-const tripz = client.emojis.find(emoji => emoji.name === "TRIPZ");
-const nathan = client.emojis.find(emoji => emoji.name === "NATHAN");
-const daxedy = client.emojis.find(emoji => emoji.name === "Daxedy");
-
 const client = new commando.Client({
     owner: process.env.owner,
     commandPrefix: 'np.',
@@ -31,6 +25,11 @@ client.on('ready', () => {
 client.on('guildMemberAdd', member => {
 
   // Welcome message
+  // emojis
+  const np1 = client.emojis.find(emoji => emoji.name === "NP~1");
+  const tripz = client.emojis.find(emoji => emoji.name === "TRIPZ");
+  const nathan = client.emojis.find(emoji => emoji.name === "NATHAN");
+  const daxedy = client.emojis.find(emoji => emoji.name === "Daxedy");
 
   member.guild.channels.find(channel => channel.name === "welcome").send(`Hey ${member.user}, welcome to No Problem Gaming Public ${np1}! If you are here for a tryout please contact Tripz ${tripz} for Rust or Nathan ${nathan} and Daxedy ${daxedy} for siege, and please go to the <#511739375764111381> channel to receive a role, visit <#415684176461824000> for more info.`);
 
