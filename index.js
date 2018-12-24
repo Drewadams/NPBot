@@ -68,7 +68,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
       // removes Now Live when stream ends.
     } else {
-      console.log('Presence update either: ended stream or wasn\'t streaming');
+      console.log(`${newMember.displayName} presence update: either ended stream or wasn\'t streaming`);
       if (newMember.highestRole === liveRole) {
         console.log(`removing ${liveRole.name}`);
         newMember.removeRole(liveRole);
