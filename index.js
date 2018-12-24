@@ -53,8 +53,10 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     if (newMember.presence.game.streaming === true) {
 
       // Announces in self-advertising
-      console.log(`${newMember.displayName} is streaming!`);
-      // newMember.guild.channels.find(channel => channel.name === "self_advertisement").send(`${newMember.displayName} is streaming ${newMember.presence.game.name}! Come check it out: ${newMember.presence.game.url}`)
+      if (oldMember.presence.game === null || newMember.presence.game.streaming != oldMember.presence.game.streaming) {
+        console.log(`${newMember.displayName} is streaming!`);
+        newMember.guild.channels.find(channel => channel.name === "self-advertising").send(`${newMember.displayName} is streaming ${newMember.presence.game.name}! Come check it out: ${newMember.presence.game.url}`);
+      }
 
       console.log('Does this person have streamer role? ' + newMember.roles.has(streamerRole.id));
       // If part of stream team.
