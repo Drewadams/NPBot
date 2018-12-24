@@ -23,6 +23,10 @@ client.on('ready', () => {
 
 // DM's any new users
 client.on('guildMemberAdd', member => {
+
+  // Welcome message
+  member.guild.channels.find(channel => channel.name === "welcome").send(`Hey ${member.user}, welcome to No Problem Gaming Public :NP~1:! If you are here for a tryout please contact Tripz :TRIPZ: for Rust or Nathan :NATHAN: and Daxedy :Daxedy: for siege, and please go to the #roles channel to receive a role, visit #information for more info.`);
+
   // Send the message to DM:
   member.user.send(`Welcome to the NP Public server, ${member}!`);
   member.user.send('Type  *np.r6s*  or  *np.rust*  in the #roles channel to get a role.');
