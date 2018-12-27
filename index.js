@@ -54,8 +54,12 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
       // Announces in self-advertising
       if (oldMember.presence.game === null || newMember.presence.game.streaming != oldMember.presence.game.streaming) {
-        console.log(`${newMember.displayName} is streaming!`);
-        newMember.guild.channels.find(channel => channel.name === "self_advertisement").send(`${newMember.displayName} is streaming ${newMember.presence.game.name}! Come check it out: ${newMember.presence.game.url}`);
+
+        if (newMember.id === '246449524132937730') {
+          // Only sends the message to people WHO DON'T SPAM THE SHIT
+          console.log(`${newMember.displayName} is streaming!`);
+          newMember.guild.channels.find(channel => channel.name === "self_advertisement").send(`${newMember.displayName} is streaming ${newMember.presence.game.name}! Come check it out: ${newMember.presence.game.url}`);
+        }
       }
 
       console.log('Does this person have streamer role? ' + newMember.roles.has(streamerRole.id));
