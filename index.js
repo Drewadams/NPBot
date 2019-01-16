@@ -88,5 +88,16 @@ client.on('presenceUpdate', (oldMember, newMember) => {
   };
 });
 
+// Combs through messages to remove racism.
+client.on('message', message => {
+  let msgCollect = message.content;
+  let msg = msgCollect.toLowerCase();
+  if (msg.includes('nigger') || msg.includes('n1gger') || msg.includes('n i g g e r')) {
+    message.delete();
+    console.log(`just deleted this message: ${msgCollect}`);
+    message.channel.send('Racism isn\'t allowed in this server.');
+  }
+});
+
 // Bot login
 client.login(process.env.token);
