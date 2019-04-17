@@ -31,6 +31,7 @@ client.on('guildMemberAdd', member => {
   const nathan = client.emojis.find(emoji => emoji.name === "NATHAN");
   const daxedy = client.emojis.find(emoji => emoji.name === "Daxedy");
 
+  console.log(`${member.user} has joined. Sending welcome message.`)
   member.guild.channels.find(channel => channel.name === "welcome").send(`Hey ${member.user}, welcome to No Problem Gaming Public ${npg}! If you are here for a Siege tryout please contact Nathan. In the mean time though, please go to the <#511739375764111381> channel to receive a role. Finally, you can visit <#415684176461824000> for more info.`);
 
   // Send the message to DM:
