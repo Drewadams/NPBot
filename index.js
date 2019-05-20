@@ -4,7 +4,7 @@ const aws = require('aws-sdk');
 
 const client = new commando.Client({
     owner: process.env.owner,
-    commandPrefix: 'np.',
+    commandPrefix: 'fuck.',
     unknownCommandResponse: false
 });
 
